@@ -38,6 +38,23 @@
             background-color: #f6d365;
             border-color: #f6d365;
         }
+
+        .btn-total_balance {
+            background-color: #f6d365;
+            border-color: #f6d365;
+        }
+
+        .btn-search {
+            background-color: #f6d365;
+            border-color: #f6d365;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -65,9 +82,15 @@
                 {% endfor %}
             </tbody>
         </table>
-
-        <div class="d-flex justify-content-center">
-            <a class="btn btn-success" href="{{ url_for('add_transaction') }}">Add Transaction</a>
+        {% if total_balance %}
+            <div class="total_balance">
+                <h3>Total Balance: {{ total_balance }}</h3>
+            </div>
+        {% endif %}
+        <div class="d-flex buttons">
+            <a class="btn btn-success" href="{{ url_for('add_transaction') }}">Add Transaction</a>  
+            <a class="btn btn-success" href="{{ url_for('total_balance') }}">Total Balance</a>
+            <a class="btn btn-success" href="{{ url_for('search_transactions') }}">Search</a>
         </div>
     </div>
 </body>
